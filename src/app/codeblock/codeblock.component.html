@@ -3,8 +3,10 @@
 <ul>
     <li *ngFor="let character of characters" [ngStyle]="{color: getCharColor(character)}">{{character.name}}</li>
 </ul> -->
-<mat-grid-list cols="4" rowHeight="550px" >
+<mat-grid-list cols="4" rowHeight="550px">
     <mat-grid-tile *ngFor="let character of characters">
         <app-codeblock-box [character]="character"></app-codeblock-box>
     </mat-grid-tile>
 </mat-grid-list>
+<mat-paginator [length]="totalLength" [pageSize]="20" (page)="setPage($event)" aria-label="Select page">
+</mat-paginator>
